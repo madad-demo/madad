@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>MADAD — نموذج أولي تفاعلي</title>
+<style>
+*{box-sizing:border-box}body{margin:0;font-family:"Arial","Tahoma",sans-serif;background:#eef2f6;color:#172033}
+.app{max-width:1240px;margin:auto;padding:18px}
+header{background:#172033;color:#fff;border-radius:18px;padding:18px 22px;display:flex;justify-content:space-between;align-items:center}
+.logo{font-size:34px;font-weight:900;direction:ltr;text-align:right}.subtitle{font-size:14px;color:#d8e0e9;margin-top:3px}.badge{background:#eaf7ef;color:#1b7148;border-radius:20px;padding:8px 12px;font-size:12px;font-weight:800}
+nav{display:flex;gap:8px;flex-wrap:wrap;margin:14px 0}nav button{background:#fff;border:1px solid #d7dee8;color:#344054;padding:10px 14px;border-radius:10px;font-weight:800}nav button.active{background:#25384e;color:#fff}
+.view{display:none}.view.active{display:block}
+.grid{display:grid;grid-template-columns:1fr 1.5fr;gap:16px}.card{background:#fff;border:1px solid #dfe5ed;border-radius:17px;padding:19px;box-shadow:0 4px 18px #1b2b3d0b}
+h2{margin:0 0 5px;font-size:20px}h3{margin:18px 0 8px;font-size:15px}.muted{font-size:13px;color:#667085;line-height:1.55}
+label{display:block;font-size:12px;font-weight:800;margin:13px 0 6px;color:#475467}select,input{width:100%;padding:11px;border:1px solid #ccd5e0;border-radius:10px;background:#fff;font-size:14px}
+button{font-family:inherit;cursor:pointer}.primary{border:0;background:#172033;color:#fff;border-radius:11px;padding:12px 15px;font-weight:900}.full{width:100%;margin-top:15px}
+.steps{margin-top:14px;background:#f7f9fb;border-radius:13px;padding:12px}.step{padding:8px 0;border-bottom:1px solid #e7ebf0;font-size:13px}.step:last-child{border:0}.step span{display:inline-block;width:9px;height:9px;border-radius:50%;background:#2a7a50;margin-left:8px}
+.profile{border:1px solid #e1e6ed;border-radius:14px;padding:14px;margin-top:10px}.phead{display:flex;justify-content:space-between;align-items:center}.name{font-weight:900;font-size:15px}.score{font-weight:900}.chips{display:flex;flex-wrap:wrap;gap:6px;margin:9px 0}.chip{background:#f0f3f7;border-radius:18px;padding:5px 8px;font-size:11px}.verified{background:#e9f7ee;color:#1c7047}.why{font-size:12px;color:#667085;line-height:1.5}.miniBtns{display:flex;gap:7px;margin-top:10px}.miniBtns button{border:0;background:#eef2f6;padding:8px 10px;border-radius:9px;font-size:12px;font-weight:800}
+.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:9px;margin-top:15px}.kpi{background:#f7f9fb;padding:12px;border-radius:12px}.kpi b{display:block;font-size:19px}.kpi small{color:#667085}
+.timeline{border-right:3px solid #dce3eb;padding-right:14px}.event{position:relative;margin:13px 0}.event:before{content:"";position:absolute;right:-21px;top:4px;width:11px;height:11px;border-radius:50%;background:#2a7a50}.event b{font-size:13px}.event p{margin:4px 0;color:#667085;font-size:12px;line-height:1.5}
+.info{background:#f7f9fb;border-radius:13px;padding:14px;margin-top:12px}.success{background:#edf8f1;border:1px solid #cde8d7}.warn{background:#fff8e8;border:1px solid #f2dfad}
+.table{width:100%;border-collapse:collapse;margin-top:12px}.table th,.table td{border:1px solid #e0e5eb;padding:9px;font-size:12px;text-align:right}.table th{background:#f0f3f7}
+.footer{text-align:center;color:#7b8797;font-size:11px;margin:17px}
+@media(max-width:850px){.grid{grid-template-columns:1fr}.kpis{grid-template-columns:1fr 1fr}.logo{font-size:27px}}
+</style>
+</head>
+<body>
+<div class="app">
+<header><div><div class="logo">MADAD</div><div class="subtitle">شبكة الجاهزية والقدرة المجتمعية — من الحاجة إلى الاستجابة</div></div><div class="badge">نموذج أولي تفاعلي</div></header>
+<nav>
+<button class="active" onclick="show('home',this)">نظرة عامة</button>
+<button onclick="show('capacity',this)">بنك القدرات</button>
+<button onclick="show('need',this)">إنشاء حاجة</button>
+<button onclick="show('match',this)">المطابقة الذكية</button>
+<button onclick="show('action',this)">تنفيذ وأثر</button>
+</nav>
+
+<section id="home" class="view active">
+<div class="card"><h2>ما هي MADAD؟</h2><div class="muted">MADAD لا تنتظر ظهور الحاجة ثم تبدأ البحث عن متطوعين. بل تبني مسبقًا صورة منظمة عن قدرات الشباب: المهارات، الخبرات، الموارد، الموقع، أوقات الاستعداد وحالة التحقق. وعند ظهور حاجة موثوقة، تحوّلها إلى متطلبات ثم تبحث داخل هذه القدرة الجاهزة عن الأنسب.</div>
+<div class="kpis"><div class="kpi"><b>128</b><small>قدرة مسجلة — بيانات تجريبية</small></div><div class="kpi"><b>74</b><small>متطوع جاهز — تجريبي</small></div><div class="kpi"><b>91%</b><small>ملفات متحققة — تجريبي</small></div><div class="kpi"><b>3</b><small>مجالات في العرض</small></div></div></div>
+<div class="grid" style="margin-top:16px">
+<div class="card"><h2>المشكلة التي نعالجها</h2><div class="timeline">
+<div class="event"><b>تظهر حاجة</b><p>مؤسسة شبابية تحتاج أشخاصًا بمهارات محددة.</p></div>
+<div class="event"><b>يبدأ البحث من الصفر</b><p>منشورات، رسائل، اتصالات وانتظار الردود.</p></div>
+<div class="event"><b>صعوبة معرفة الأنسب</b><p>من لديه المهارة؟ من هو قريب؟ من هو متاح؟ ومن تم التحقق منه؟</p></div>
+<div class="event"><b>MADAD تغيّر المسار</b><p>القدرة تكون موجودة مسبقًا وقابلة للاستدعاء عند الحاجة.</p></div>
+</div></div>
+<div class="card"><h2>النموذج الأساسي</h2>
+<div class="info success"><b>الحاجة</b> ← ما المطلوب فعلًا؟</div>
+<div class="info"><b>القدرة</b> ← من يستطيع تقديمه؟</div>
+<div class="info"><b>الجاهزية</b> ← من يستطيع الاستجابة الآن؟</div>
+<div class="info"><b>الثقة</b> ← ما مستوى التحقق والخبرة؟</div>
+<div class="info"><b>المطابقة</b> ← من الأنسب لهذه الحاجة؟</div>
+<div class="info"><b>التنفيذ والأثر</b> ← هل تمت الاستجابة؟ وما النتيجة؟</div>
+</div></div>
+</section>
+
+<section id="capacity" class="view">
+<div class="grid"><div class="card"><h2>بنك القدرات المجتمعية</h2><div class="muted">هذه ليست قائمة أسماء فقط. كل ملف يمثل قدرة قابلة للاستدعاء.</div>
+<label>المجال</label><select><option>الإسعافات الأولية</option><option>البيئة</option><option>البرمجة والتكنولوجيا</option><option>التعليم</option><option>اللوجستيك</option></select>
+<label>حالة الجاهزية</label><select><option>جاهز الآن</option><option>جاهز في موعد محدد</option><option>غير متاح حاليًا</option></select>
+<label>حالة التحقق</label><select><option>متحقق</option><option>مصرح ذاتيًا</option></select>
+<div class="info"><b>ما الذي يمكن تخزينه؟</b><br>المهارة • مستوى الخبرة • التحقق • الموقع التقريبي • أوقات الاستعداد • الموارد المتاحة • سجل المشاركة.</div></div>
+<div class="card"><h2>نماذج من القدرات</h2><div id="caplist"></div></div></div>
+</section>
+
+<section id="need" class="view">
+<div class="grid"><div class="card"><h2>إنشاء حاجة موثوقة</h2><div class="muted">في التطبيق الحقيقي تُنشأ الاحتياجات من مؤسسة شبابية أو جهة شريكة موثوقة، وليس من أي حساب عشوائي.</div>
+<label>نوع الحاجة</label><select id="needType" onchange="updateReq()"><option value="firstaid">تنظيم ورشة إسعافات أولية</option><option value="trees">حملة تشجير</option><option value="digital">مبادرة توعوية رقمية</option></select>
+<label>المكان</label><select id="needLoc"><option>تلاغمة</option><option>ميلة</option><option>البليدة</option><option>وهران</option></select>
+<label>التاريخ</label><input value="السبت — 20 سبتمبر 2026">
+<label>العدد المطلوب</label><input id="needCount" type="number" value="3" min="1" max="20">
+<label>المتطلبات</label><div id="reqBox" class="info success">3 متطوعين • إسعافات أولية • متحقق • متاح في الموعد</div>
+<button class="primary full" onclick="createNeed()">تحويل الحاجة إلى متطلبات →</button>
+<div id="needMsg" class="info" style="display:none"></div></div>
+<div class="card"><h2>لماذا هذه الخطوة مهمة؟</h2><div class="muted">MADAD لا تقوم فقط ببحث نصي عن كلمة “متطوع”. النظام يحاول تحويل وصف الحاجة إلى مجموعة من القدرات والقيود التي يمكن مطابقتها.</div>
+<table class="table"><tr><th>المعلومة</th><th>مثال</th></tr><tr><td>المهارة</td><td>الإسعافات الأولية</td></tr><tr><td>الجاهزية</td><td>السبت صباحًا</td></tr><tr><td>الموقع</td><td>قريب من المؤسسة</td></tr><tr><td>الثقة</td><td>مهارة متحقق منها</td></tr><tr><td>العدد</td><td>3</td></tr></table></div></div>
+</section>
+
+<section id="match" class="view">
+<div class="card"><h2>المطابقة الذكية</h2><div class="muted">النتيجة لا تعتمد على عامل واحد. النموذج التجريبي يجمع بين ملاءمة المهارة، الجاهزية، القرب، التحقق وسجل المشاركة.</div>
+<button class="primary" onclick="runMatch()">تشغيل المطابقة الآن</button><div id="matchSteps" class="steps" style="display:none"></div><div id="matches"></div></div>
+</section>
+
+<section id="action" class="view">
+<div class="grid"><div class="card"><h2>من المطابقة إلى التنفيذ</h2><div class="timeline">
+<div class="event"><b>1 — إرسال الدعوة</b><p>يتم التواصل مع الأشخاص المقترحين.</p></div>
+<div class="event"><b>2 — تأكيد المشاركة</b><p>الجاهزية تصبح التزامًا فعليًا بعد قبول الدعوة.</p></div>
+<div class="event"><b>3 — تنفيذ النشاط</b><p>المؤسسة والمتطوعون ينفذون الحاجة.</p></div>
+<div class="event"><b>4 — تسجيل الأثر</b><p>الساعات، عدد المشاركين، المستفيدون، والنتيجة.</p></div>
+<div class="event"><b>5 — تحسين الشبكة</b><p>سجل المشاركة يساعد في جعل المطابقات المستقبلية أكثر دقة.</p></div>
+</div></div>
+<div class="card"><h2>لوحة الأثر</h2><div class="kpis"><div class="kpi"><b>−</b><small>زمن الوصول إلى تطابق</small></div><div class="kpi"><b>−</b><small>نسبة الاستجابة للدعوات</small></div><div class="kpi"><b>−</b><small>الاحتياجات المنجزة</small></div><div class="kpi"><b>−</b><small>ساعات التطوع</small></div></div>
+<div class="info warn"><b>مهم:</b> هذه الخانات ستكون نتائج حقيقية بعد التجربة الميدانية. لا نضع أرقامًا مصطنعة وندعي أنها نتائج المشروع.</div>
+<h3>التوسع المقترح</h3><div class="muted">مؤسسة شبابية واحدة → عدة مؤسسات في بلدية → شبكة على مستوى الولاية → توسع قابل للتعميم.</div></div></div>
+</section>
+<div class="footer">جميع الأسماء والأرقام في النموذج الأولي بيانات تجريبية للعرض وليست نتائج ميدانية.</div>
+</div>
+<script>
+const profiles=[
+["أمينة ب.","الإسعافات الأولية","متحقق","جاهزة الآن","1.8 كم","12 مشاركة",96],
+["ياسين ك.","الإسعافات الأولية","متحقق","جاهز السبت","3.2 كم","8 مشاركات",93],
+["سارة م.","الإسعافات الأولية","متحقق","جاهزة الآن","4.1 كم","6 مشاركات",89],
+["نسيم ر.","الإسعافات الأولية","مصرح ذاتيًا","غير مؤكد","2.6 كم","مشاركتان",68],
+["ريان أ.","البيئة","متحقق","جاهز الآن","1.4 كم","9 مشاركات",95],
+["ليلى س.","البيئة","متحقق","جاهزة السبت","2.8 كم","5 مشاركات",90],
+["إلياس ب.","البرمجة والتكنولوجيا","متحقق","جاهز الآن","2.1 كم","14 مشاركة",97],
+["إيمان ح.","البرمجة والتكنولوجيا","متحقق","جاهزة السبت","3.7 كم","7 مشاركات",91]
+];
+function show(id,btn){document.querySelectorAll(".view").forEach(x=>x.classList.remove("active"));document.getElementById(id).classList.add("active");document.querySelectorAll("nav button").forEach(x=>x.classList.remove("active"));btn.classList.add("active");}
+function capCards(){document.getElementById("caplist").innerHTML=profiles.slice(0,6).map(p=>`<div class="profile"><div class="phead"><span class="name">${p[0]}</span><span class="score">${p[6]}%</span></div><div class="chips"><span class="chip verified">${p[2]}</span><span class="chip">${p[1]}</span><span class="chip">${p[3]}</span><span class="chip">${p[4]}</span></div><div class="why">سجل المشاركة: ${p[5]}</div></div>`).join("")}
+function updateReq(){let k=document.getElementById("needType").value,n=document.getElementById("needCount").value;let text=k==="firstaid"?`${n} متطوعين • إسعافات أولية • متحقق • متاح في الموعد`:k==="trees"?`${n} متطوعين • نشاط بيئي • جاهزية في الموعد • قريب من المكان`:`${n} متطوعين • برمجة/تواصل رقمي • متاح في الموعد`;document.getElementById("reqBox").innerText=text}
+function createNeed(){document.getElementById("needMsg").style.display="block";document.getElementById("needMsg").innerHTML="<b>تم تحويل الحاجة إلى متطلبات قابلة للمطابقة.</b><br>يمكن الآن الانتقال إلى المطابقة الذكية للبحث داخل بنك القدرات."}
+function runMatch(){let type=document.getElementById("needType")?.value||"firstaid";let skill=type==="firstaid"?"الإسعافات الأولية":type==="trees"?"البيئة":"البرمجة والتكنولوجيا";let list=profiles.filter(p=>p[1]===skill).sort((a,b)=>b[6]-a[6]).slice(0,3);
+document.getElementById("matchSteps").style.display="block";document.getElementById("matchSteps").innerHTML="<div class='step'><span></span>تحليل الحاجة واستخراج القدرات المطلوبة</div><div class='step'><span></span>البحث داخل شبكة القدرات</div><div class='step'><span></span>فحص الجاهزية والقرب وحالة التحقق</div><div class='step'><span></span>ترتيب أفضل المطابقات</div>";
+document.getElementById("matches").innerHTML=list.map((p,i)=>`<div class="profile"><div class="phead"><span class="name">المرتبة ${i+1} — ${p[0]}</span><span class="score">${p[6]}%</span></div><div class="chips"><span class="chip verified">✓ ${p[2]}</span><span class="chip">${p[1]}</span><span class="chip">${p[3]}</span><span class="chip">${p[4]}</span><span class="chip">${p[5]}</span></div><div class="why">سبب المطابقة: توافق المهارة + الجاهزية + القرب + مستوى الثقة/التحقق + سجل المشاركة.</div><div class="miniBtns"><button onclick="alert('تم إعداد دعوة تجريبية لـ '+p[0])">إرسال دعوة</button><button onclick="alert('في النظام الحقيقي تظهر هنا تفاصيل الملف وفق صلاحيات الوصول.')">عرض الملف</button></div></div>`).join("")}
+capCards();updateReq();
+</script></body></html>
